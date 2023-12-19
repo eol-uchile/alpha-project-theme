@@ -563,3 +563,11 @@ body {
     box-shadow: none !important;
     border: none !important;
 }
+
+
+/* 
+Lang
+*/
+
+#language-settings-form{display:none;}
+.footer-language-selector{display:none;}
