@@ -571,3 +571,27 @@ Lang
 
 #language-settings-form{display:none;}
 .footer-language-selector{display:none;}
+
+
+/*
+Dashboard
+*/
+
+.dashboard .main-container .my-courses .course .details .wrapper-course-image .cover,
+.dashboard .main-container .my-courses .course .details .wrapper-course-image a.fade-cover{
+    box-sizing: border-box;
+    transition: all 0.15s linear 0s;
+    float: left;
+    position: relative;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 150px;
+}
+
+.dashboard .main-container .my-courses .course .details .wrapper-course-image .cover .course-image,
+.dashboard .main-container .my-courses .course .details .wrapper-course-image a.fade-cover .course-image {
+    width: 100%;
+    max-height: 135px;
+}

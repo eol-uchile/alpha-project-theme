@@ -80,7 +80,7 @@ if site_status_message:
         % endif
     %endfor    
 %endif
-<nav class="alpha-header-container alpha-header navbar navbar-expand-xl navbar-light bg-white p-0 navbar-collapse flex-column">
+<nav class="alpha-header-container alpha-header window-wrap navbar navbar-expand-xl navbar-light bg-white p-0 navbar-collapse flex-column">
     % if use_cookie_banner:
         ${static.renderReact(
             component="CookiePolicyBanner",
@@ -123,22 +123,22 @@ if site_status_message:
     <div class="alpha-course-header container-fluid py-2">
         
         <div class="row">
-            <div class="d-none alpha-course-header-img col-sm-12 col-md-3 col-lg-3 my-auto mx-auto pb-2 pb-sm-0">
-                <%block name="navigation_logo">
-                    ## <img class="img-fluid d-block my-auto mx-auto mx-md-0" src="${static.url('alpha-project-theme/images/logo_alpha.png')}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
-                </%block>
-            </div>
+            ## <div class="alpha-course-header-img col-sm-12 col-md-12 col-lg-12 my-auto mx-auto pb-2 pb-sm-0">
+            ##     <%block name="navigation_logo">
+            ##         <img class="img-fluid d-block my-auto mx-auto mx-md-0" src="${static.url('alpha-project-theme/images/logo_alpha.png')}" alt="${_("{platform_name} Home Page").format(platform_name=static.get_platform_name())}"/>
+            ##     </%block>
+            ## </div>
             <div class="course-title col-mr-auto px-2 px-md-3">
             
-                <p class="my-0 text-white">
+                <p class="my-0">
                     <span class="provider">${course.display_org_with_default}:</span>2
                     <span class="course-number text-uppercase">${course.display_number_with_default}</span>
                 </p>
-                <h3 class="my-0 text-white">
+                <h3 class="my-0">
                     <strong class="course-name">${display_name}</strong>
                 </h3>
             </div>
-            <div class="d-none alpha-course-header-btn col text-right my-auto py-2">
+            <div class="alpha-course-header-btn col text-right my-auto py-2">
                 <a class="btn btn-outline-light" href="./" target="_blank">
                     <span data-action-type="start">${_("Pantalla Completa")}</span>
                 </a>
