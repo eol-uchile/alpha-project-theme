@@ -80,7 +80,7 @@ if site_status_message:
         % endif
     %endfor    
 %endif
-<nav class="alpha-header-container alpha-header window-wrap navbar navbar-expand-xl navbar-light bg-white p-0 navbar-collapse flex-column">
+<nav class="alpha-header-container alpha-header window-wrap mb-5 navbar navbar-expand-xl navbar-light bg-white p-0 navbar-collapse flex-column">
     % if use_cookie_banner:
         ${static.renderReact(
             component="CookiePolicyBanner",
@@ -98,7 +98,10 @@ if site_status_message:
             </li>
             <li class="col-9 pr-0"></li>
         </ul>
+        <ul class="container-fluid row flex-row-reverse p-0 d-flex d-xl-none pr-4 " style="height:25px;">
+        </ul>
     </div>
+    
     <div class="row py-3 py-xl-4 px-3 px-xl-0 container-fluid">
         <%include file="navbar-logo-header.html" args="online_help_token=online_help_token"/>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#nav-eol-header" aria-controls="nav-eol-header" aria-expanded="false" aria-label="Toggle navigation">

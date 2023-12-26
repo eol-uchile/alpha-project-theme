@@ -7,7 +7,6 @@ from six import text_type
 %>
 <%page args="course" expression_filter="h"/>
 
-
 <article class="course" id="${course.id}" role="region" aria-label="${course.display_name_with_default}">
   <a href="${reverse('about_course', args=[text_type(course.id)])}">
     <header class="course-image">
@@ -16,10 +15,9 @@ from six import text_type
       </div>
     </header>
     <div class="course-info text-center" aria-hidden="true">
-      <!-- <h2 class="course-name"> -->
-        <!-- <span class="course-organization">${course.display_org_with_default}</span> -->
-        <span class="podcast-header card-title text-primary d-block font-weight-bold">${course.display_name_with_default}</span>
-      <!-- </h2> -->
+      <div style="display:table !important;" class="podcast-header card-title text-primary d-block font-weight-bold">
+        <p class="podcast-header-text">${course.display_name_with_default}</p>
+      </div>
       <%
       if course.start is not None:
           course_date_string = course.start.strftime('%Y-%m-%dT%H:%M:%S%z')
