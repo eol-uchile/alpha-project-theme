@@ -20,7 +20,6 @@
 /*
  * Base structure
  */
-
 @font-face {
     font-family: "Trebuchet MS";
     font-style: normal;
@@ -794,4 +793,8 @@ Dashboard
 
 .course-info div.podcast-footer {
     padding: 5px 15px;
+}
+
+.subsection-title{
+    font-size: 1rem;
 }
