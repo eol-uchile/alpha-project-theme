@@ -798,3 +798,69 @@ Dashboard
 .subsection-title{
     font-size: 1rem;
 }
+
+.home .intro-section {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    background-color: white;
+    /* Adjust the color to match the actual design */
+    padding: 20px;
+
+}
+
+.home .intro-section .intro-text {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.home .intro-section .intro-text {
+    background-image: url("/static/alpha-project-theme/images/homebg.webp");
+    height: 500px;
+    background-size:cover;
+    background-position:center;
+}
+
+.home .intro-section .intro-text{
+    color: white;
+}
+
+.home .intro-section .intro-text h1 {
+    color: white;
+    font-size: 48px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.home .intro-section .intro-text h2 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.home .intro-section .intro-text p {
+    color: white;
+    font-size: 20px;
+}
+
+.course-list-container h1 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: left;
+    padding: 12px 30px;
+    border-radius: 0 40px 40px 0;
+}
+
+header {
+    background-color: unset !important;
+}
