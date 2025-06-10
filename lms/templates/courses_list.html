@@ -1,11 +1,38 @@
 <%page expression_filter="h"/>
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
-<style>
-  
-
-</style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<%! from lms.djangoapps.course_info.helpers import get_course_class %>
+% if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
+<%  cats,course_class = get_course_class(courses) %>
+%for categ in cats:
+  <div class="row pt-4">
+    <div class="col-12">
+      %if 'cmm' not in categ['name'] and (categ['show_opt'] == 2 or (categ['show_opt'] == 1 and len(course_class[categ['id']]['courses']) > 0)):
+        <div class="row">
+          <h1 class="alphaproject-categ-title text-left my-4 pb-2 px-5" style="display:inline">
+            ${categ['name'].capitalize()}
+          </h1>
+        </div>
+        <div class="row alpha-courses-list courses my-4 px-5">
+          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+            <ul class="courses-listing">
+                %for course in course_class[categ['id']]['courses']:
+                  <li class="courses-listing-item">
+                    <%include file="course.html" args="course=course" />
+                  </li>
+                %endfor
+            </ul>
+          % endif
+        </div>
+      %endif
+      %if (categ['show_opt'] == 2 and len(course_class[categ['id']]['courses']) == 0):
+        <p class="without-courses"> ${_("No existen cursos")}</p>
+      %endif
+    </div>
+  </div>
+%endfor
+%else:
 <section class="courses-container container-fluid w-100 px-5">
   <section class="highlighted-courses">
     % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
@@ -28,3 +55,4 @@
     % endif
   </section>
 </section>
+%endif
