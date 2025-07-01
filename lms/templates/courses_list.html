@@ -6,31 +6,37 @@
 % if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
 <%  cats,course_class = get_course_class(courses) %>
 %for categ in cats:
-  <div class="row pt-4">
-    <div class="col-12">
-      %if 'cmm' not in categ['name'] and (categ['show_opt'] == 2 or (categ['show_opt'] == 1 and len(course_class[categ['id']]['courses']) > 0)):
-        <div class="row">
-          <h1 class="alphaproject-categ-title text-left my-4 pb-2 px-5" style="display:inline">
-            ${categ['name'].capitalize()}
-          </h1>
-        </div>
-        <div class="row alpha-courses-list courses my-4 px-5">
-          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-            <ul class="courses-listing">
-                %for course in course_class[categ['id']]['courses']:
-                  <li class="courses-listing-item">
-                    <%include file="course.html" args="course=course" />
-                  </li>
-                %endfor
-            </ul>
-          % endif
-        </div>
-      %endif
-      %if (categ['show_opt'] == 2 and len(course_class[categ['id']]['courses']) == 0):
-        <p class="without-courses"> ${_("No existen cursos")}</p>
-      %endif
+  ## show_opt es un campo del modelo Main Classification, que indica si la categoría y sus cursos deben o no mostrarse en la portada
+  ## show_opt = 0 -> No mostrar cursos ni categoría
+  ## show_opt = 1 -> Mostrar solo si la categoría tiene cursos asociados
+  ## show_opt = 2 -> Mostrar cursos y categoría
+  ## Esta regla identifica las categorías que deben mostrarse siempre y las que deben mostrarse solo si tienen al menos un curso
+  %if categ['show_opt'] == 2 or (categ['show_opt'] == 1 and len(course_class[categ['id']]['courses']) > 0):
+    <div class="row pt-4">
+      <div class="col-12">
+          <div class="row">
+            <h1 class="alphaproject-categ-title text-left my-4 pb-2 px-5" style="display:inline">
+              ${categ['name'].capitalize()}
+            </h1>
+          </div>
+          <div class="row alpha-courses-list courses my-4 px-5">
+            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+              <ul class="courses-listing">
+                  %for course in course_class[categ['id']]['courses']:
+                    <li class="courses-listing-item">
+                      <%include file="course.html" args="course=course" />
+                    </li>
+                  %endfor
+              </ul>
+            % endif
+          </div>
+        ## Esta regla identifica los casos en que exista una categoría sin cursos que deba si o si mostrarse.
+        %if (categ['show_opt'] == 2 and len(course_class[categ['id']]['courses']) == 0):
+          <p class="without-courses"> ${_("No existen cursos")}</p>
+        %endif
+      </div>
     </div>
-  </div>
+  %endif
 %endfor
 %else:
 <section class="courses-container container-fluid w-100 px-5">
