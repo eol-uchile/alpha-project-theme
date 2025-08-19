@@ -924,14 +924,12 @@ header {
     /* Column sizing */
     .responsive-table th:nth-child(1),
     .responsive-table td:nth-child(1) {
-    width: 12%;  /* Categoría Académica */
+    width: 6.8%;  /* Nivel */
+    text-align: center;
     }
 
     .responsive-table th:nth-child(2),
-    .responsive-table td:nth-child(2) {
-    width: 6%;   /* Nivel */
-    }
-
+    .responsive-table td:nth-child(2),
     .responsive-table th:nth-child(3),
     .responsive-table td:nth-child(3),
     .responsive-table th:nth-child(4),
@@ -939,9 +937,7 @@ header {
     .responsive-table th:nth-child(5),
     .responsive-table td:nth-child(5),
     .responsive-table th:nth-child(6),
-    .responsive-table td:nth-child(6),
-    .responsive-table th:nth-child(7),
-    .responsive-table td:nth-child(7) {
-    width: 16%;  /* Content columns */
+    .responsive-table td:nth-child(6){
+    width: 18%;  /* Content columns */
     }
 }
