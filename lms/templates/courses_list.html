@@ -2,8 +2,8 @@
 <%namespace name='static' file='static_content.html'/>
 <%! from django.utils.translation import ugettext as _ %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<%! from lms.djangoapps.course_info.helpers import get_course_class %>
 % if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
+<% from lms.djangoapps.course_info.helpers import get_course_class %>
 <%  cats,course_class = get_course_class(courses) %>
 %for categ in cats:
   ## show_opt es un campo del modelo Main Classification, que indica si la categoría y sus cursos deben o no mostrarse en la portada
