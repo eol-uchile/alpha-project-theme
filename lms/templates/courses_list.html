@@ -3,10 +3,10 @@
 <%! from django.utils.translation import ugettext as _ %>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 % if settings.FEATURES.get('SHOW_COURSES_BY_CLASS'):
-<% from lms.djangoapps.course_info.helpers import get_course_class %>
-<%  cats,course_class = get_course_class(courses) %>
+<% from course_classification.utils import get_all_categories_and_its_courses %>
+<%  cats,course_class = get_all_categories_and_its_courses(courses) %>
 %for categ in cats:
-  ## show_opt es un campo del modelo Main Classification, que indica si la categoría y sus cursos deben o no mostrarse en la portada
+  ## show_opt es un campo del modelo Course Classification, que indica si la categoría y sus cursos deben o no mostrarse en la portada
   ## show_opt = 0 -> No mostrar cursos ni categoría
   ## show_opt = 1 -> Mostrar solo si la categoría tiene cursos asociados
   ## show_opt = 2 -> Mostrar cursos y categoría
