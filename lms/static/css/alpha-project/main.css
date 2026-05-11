@@ -918,3 +918,26 @@ header {
     width: 18%;  /* Content columns */
     }
 }
+
+/* Certificate Validation */
+
+#eol-certificates .eol-content-container .row .certificates-card{
+    margin-top: 2rem;
+    box-shadow: none !important;
+    min-width: 32vw;
+}
+#eol-certificates .eol-content-container .row .certificates-card .certificates-header{
+    font-size: 2.5rem;
+    text-align: center;
+}
+#eol-certificates .eol-content-container .row .certificates-card .form-group{
+    text-align: center;
+}
+#eol-certificates .eol-content-container .row .certificates-card .form-group input,
+#eol-certificates .eol-content-container .row .certificates-card .form-group label{
+    font-style: normal;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+#eol-certificates .eol-content-container .row .certificates-card input.btn-primary{
+    border-radius: 0.25rem;
+}
